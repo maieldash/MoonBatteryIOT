@@ -43,7 +43,7 @@ rails db:migrate
 
 ```
 EDITOR="nano" rails credentials:edit
-SECRET_KEY_BASE=your_secret_key
+SECRET_KEY_BASE: your_secret_key
 ```
 
 6. Start the server:
