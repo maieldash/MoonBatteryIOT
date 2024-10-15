@@ -3,7 +3,7 @@
 # Ignore git directory.
 /.git/
 /.gitignore
-
+/config/master.key
 # Ignore bundler config.
 /.bundle
 
@@ -13,6 +13,7 @@
 
 # Ignore all default key files.
 /config/master.key
+/config/credentials.yml.enc
 /config/credentials/*.key
 
 # Ignore all logfiles and tempfiles.

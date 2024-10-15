@@ -5,7 +5,8 @@ class MoonBatteriesController < ApplicationController
     if moon_battery.save
       render json: { serial_number: moon_battery.serial_number }, status: :created
     else
-      render json: moon_battery.errors, status: :unprocessable_entity
+      render json: { errors: moon_battery.errors }, status: :unprocessable_entity
+
     end
   end
 
@@ -13,9 +14,9 @@ class MoonBatteriesController < ApplicationController
     moon_battery = find_moon_battery
     if moon_battery
       moon_battery.ping!
-      render json: "pinged successfully", status: :ok
+      render json: { message: "pinged successfully" }, status: :ok
     else
-      render json: "MoonBattery not found", status: :not_found
+      render json: { error: "MoonBattery not found" }, status: :not_found
     end
   end
 

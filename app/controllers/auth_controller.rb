@@ -1,6 +1,6 @@
 class AuthController < ApplicationController
   def login
-    moon_battery = MoonBattery.find_by(mac_address: params[:mac_address])
+    moon_battery = MoonBattery.find_by(mac_address: params[:moon_battery][:mac_address])
     if moon_battery
       token = encode_token(moon_battery)
       render json: { token: token }, status: :ok
