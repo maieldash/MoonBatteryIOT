@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  mac_address: MyString
+  serial_number: MyString
+  last_ping: 2024-10-09 21:55:27
+  charge_level: 1
+  connected_lunar_cell: one
+
+two:
+  mac_address: MyString
+  serial_number: MyString
+  last_ping: 2024-10-09 21:55:27
+  charge_level: 1
+  connected_lunar_cell: two
