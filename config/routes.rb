@@ -16,6 +16,11 @@ Rails.application.routes.draw do
       post :configure
     end
   end
+  resources :lunar_cells, only: [] do
+    collection do
+      post :register
+    end
+  end
   # Defines the root path route ("/")
   # root "posts#index"
 end
