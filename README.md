@@ -8,6 +8,8 @@ The MoonBattery API is a Rails application designed to manage and interact with 
 
 - **User Authentication**: Secure login for MoonBattery devices using JWT tokens.
 - **Battery Management**: Register, ping, and configure MoonBattery devices.
+- **Lunar Cell Management**: Connect and manage lunar cells associated with MoonBattery devices.
+
 
 ## Getting Started
 
@@ -74,6 +76,12 @@ POST /moon_batteries/configure
 ```
 Update configurations for a MoonBattery.
 
+### Lunar Cell Management:
+```
+POST /lunar_cells/register
+```
+Register a new lunar cell for use with a MoonBattery.
+
 ## Example Requests
 
 ### Register Battery
@@ -103,7 +111,7 @@ curl --location 'http://0.0.0.0:3000/login' \
 ```
 curl --location 'http://0.0.0.0:3000/moon_batteries/ping' \
 --header 'Content-Type: application/json' \
---header 'Authorization: Bearer eyour_jwt_token \
+--header 'Authorization: Bearer your_jwt_token \
 --data '{
     "moon_battery": {
        "mac_address": "00-B0-D0-63-C2-26"
@@ -119,15 +127,28 @@ curl --location 'http://0.0.0.0:3000/moon_batteries/configure' \
 --header 'Authorization: Bearer your_jwt_token \
 --data '{
     "moon_battery": {
-       "mac_address": "00-B0-D0-63-C2-26",
-       "configurations":[
-        {
-            "temperature":"30"
-        },
-        {
-            "mode":"eco"
-        }
-       ]
+        "mac_address": "01-B0-D0-63-C2-13",
+        "configurations": [
+            { "temperature": 25 },
+            { "mode": "eco" },
+            { "power_limit": 2500 },
+            {"connected_lunar_cell": 1}
+        ]
+    }
+}
+'
+```
+
+
+### Register Lunar Cell
+
+```
+curl --location 'http://0.0.0.0:3000/lunar_cells/register' \
+--header 'Content-Type: application/json' \
+--data '{
+    "lunar_cell": {
+       "name": "cell x",
+       "location_id":100
     }
 }'
 ```
